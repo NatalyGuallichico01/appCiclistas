@@ -5,7 +5,7 @@
 - Guallichico Nataly
 
 ### App Ciclistas - Manual técnico
-
+### App Movi
 <hr>
 
 **0. Configuraciones**
@@ -87,6 +87,49 @@ La función <em>isGPSEnabled()</em> verifica si el servicio de localización est
 
 
 <hr>
+### App Web
+
+**0. Dependencias utilizadas**
+> Package.json
+![image](https://user-images.githubusercontent.com/66772757/188981105-61d1ad38-b88b-4f6d-adde-3acd0a3e78a2.png)
+<hr>
+
+**1. Estructura **
+![image](https://user-images.githubusercontent.com/66772757/188981349-4999e1c0-1317-4de7-84e0-6b91b637dcc9.png)
+
+<hr>
+<br>  
+
+**2. Componentes adicionales**  
+Implementar componentes a travez del comando "ng generate component <nombre del componente>" para la funcionalidad del login completo:
+  
+> src/app/authentication/
+  
+![image](https://user-images.githubusercontent.com/66772757/188982434-fa87581d-3c2a-4f58-8018-46f5116730d9.png)
+
+Implementar componentes a travez del comando "ng generate component <nombre del componente>" para la pagina principal denominada "dashboard":
+  
+> src/app/components/dashboard
+  
+![image](https://user-images.githubusercontent.com/66772757/188983040-d43d11ef-dd5b-4e5c-a073-5f9d688a4491.png)
+<br>
+
+<hr>
+
+**3. Services**
+Dentro del archivo "authservice.service.ts" se conficuran todos los metodos que tienen que ver con la geolocalizacion.
+> src/app/services/authservice.service.ts
+![image](https://user-images.githubusercontent.com/66772757/188984454-68a3fed0-5c2c-476c-b47a-16b93b429af0.png)
+
+**4. Metodos de geolocalización**
+>Método para crear la geololalización
+  ![image](https://user-images.githubusercontent.com/66772757/188984732-2aba27ac-87d6-4cad-aa0c-f8f3a3301e51.png)
+>Método para actualizar la geololalización
+  ![image](https://user-images.githubusercontent.com/66772757/188984881-f437d174-21e8-48e0-a48a-814884728eee.png)
+>Método para salir
+  ![image](https://user-images.githubusercontent.com/66772757/188984997-a0e3d5b0-57cc-4395-a861-ce55c91d6476.png)
+>Método para obtener los datos de geolocalización "latitud y longitud". 
+  ![image](https://user-images.githubusercontent.com/66772757/188985413-d0b40def-ba61-4e62-9662-18f148311fd3.png)
 
 ### **Enlaces**
 
