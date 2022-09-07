@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebaseConfig = {
-    apiKey: "AIzaSyC8Wt1PlcvN9jhfDXoMoERatLoJ4_lECGo",
-    authDomain: "mapsandroid-f713e.firebaseapp.com",
-    projectId: "mapsandroid-f713e",
-    storageBucket: "mapsandroid-f713e.appspot.com",
-    messagingSenderId: "99597567150",
-    appId: "1:99597567150:web:097708afc07c72a9de193f"
+    apiKey: "AIzaSyB0QQ-8A2QfH83CiB5sp0FFJSF9MvwYo3Y",
+    authDomain: "webapp-4d801.firebaseapp.com",
+    projectId: "webapp-4d801",
+    storageBucket: "webapp-4d801.appspot.com",
+    messagingSenderId: "873071133738",
+    appId: "1:873071133738:web:1a5f637c6a96d6d9c1ef53"
   };
 };

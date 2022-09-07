@@ -10,7 +10,7 @@ import { AuthserviceService } from 'src/app/services/authservice.service';
 })
 export class LoginComponent implements OnInit {
 
-  //variables correo y contraseña
+  //Variables para el correo y contraseña
   email: string='';
   password: string= '';
   public userForm: FormGroup;
@@ -28,36 +28,29 @@ export class LoginComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    //borrar el almacenamiento interno
+    //Metodo para borrar el almacenamiento interno
     localStorage.clear();
     localStorage.setItem("recarga", "true");
   }
+  //Referencia al método para Iniciar sesión y verificación de algun error
   async login(){
-    //referencia al método del servicio para Iniciar sesión
-    //verificación de algun error
     const res = await this.auth.login(this.userForm.value).catch(error =>{
       alert("Credenciales Incorrectas")
       console.log('error', error);
     })
-   //en caso de que exista respuesta
+   //Respuestas
     if(res){
-        console.log("inicio exitoso");
         const path = "users";
-        //asignación del id de Fireauthentication al id del formulario
+        //Asignación del id
         const id:string= res.user.uid;
         console.log("id user: ", id)
-        //impresión por consola de los datos del usuario registrado
-        console.log("datos usuario", this.userForm.value)
         //creario usuario en Firestore
         await this.auth.getObject(id, path).subscribe( res =>{
           this.user = res;
-          //localstorage de datos del usuario: id, rol y nombre
          localStorage.setItem("idUser", this.user.id);
-         //visualización de datos usuario
          console.log("Datos usuario: ",
          localStorage.getItem("idUser"),
          )
-         //this.router.navigate(['/dashboard'])
         })
         if(res.user?.emailVerified == true) {
           this.router.navigate(['dashboard']);

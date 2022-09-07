@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     this.auth.logout();
     
   }
-  reloadPage() { // click handler or similar
+  reloadPage() { 
     this.zone.runOutsideAngular(() => {
         location.reload();
     });

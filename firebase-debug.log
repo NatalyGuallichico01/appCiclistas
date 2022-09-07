@@ -1,0 +1,28 @@
+[debug] [2022-09-07T07:26:32.978Z] ----------------------------------------------------------------------
+[debug] [2022-09-07T07:26:32.980Z] Command:       D:\Programas\node.exe C:\Users\luiss\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-09-07T07:26:32.981Z] CLI Version:   11.8.0
+[debug] [2022-09-07T07:26:32.981Z] Platform:      win32
+[debug] [2022-09-07T07:26:32.981Z] Node Version:  v16.15.0
+[debug] [2022-09-07T07:26:32.983Z] Time:          Wed Sep 07 2022 02:26:32 GMT-0500 (hora de Ecuador)
+[debug] [2022-09-07T07:26:32.984Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-07T07:26:33.003Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-07T07:26:33.004Z] > authorizing via signed-in user (luissebastian11032014@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Desarrollo de software\Semestre 5\APP moviles\Pagina web gps\appwebgps
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 

@@ -42,30 +42,21 @@ export class RegisterComponent implements OnInit {
       alert("Registro incompleto")
       console.log('error', error);
     })
-    //en caso de que exista respuesta
     if(res){
-      console.log("Registro en FireAuthentication completo");
+      console.log("Registro completo");
       const path = "users";
-      //asignación del id de Fireauthentication al id del formulario
       const id= res.user.uid;
       this.userForm.patchValue({id: id});
-      //impresión por consola de los datos del usuario registrado
-      console.log("datos usuario", this.userForm.value)
-      //creario usuario en Firestore
+    //Creando usuario 
       this.auth.createUser(this.userForm.value, path);
       
       this.auth.getObject(id, path).subscribe( res =>{
-        //asignación del usuario
          this.user = res;
-         console.log("usuario creado: ", this.user);
-         //localstorage de datos del usuario: id, rol y nombre
          localStorage.setItem("idUser", this.user.id);
          localStorage.setItem("nameUser", this.user.name);
-         //this.auth.createGeo();
          this.myAsyncFunction(); 
       })
       this.auth.sendEmailForVarification(res.user);
-      //redireccionar a la vista principal
     }
   }
   async delay(n: number){
@@ -74,11 +65,7 @@ export class RegisterComponent implements OnInit {
     });
   }
   async  myAsyncFunction(){
-    //Do what you want here 
-    console.log("por fa espera")
-
     await this.delay(2);
-    
   }
   redirect(){
     this.router.navigate(['/login']);
@@ -93,41 +80,40 @@ export class RegisterComponent implements OnInit {
     
     
   }
-  //create geolocation
+  //Metodo para crear geolocalización 
   async setGeolocation (){
-    alert("Obteniendo datos de Geolocalización");
+    alert("Generar datos de Geolocalización");
     await this.delay(1);
     if(localStorage.getItem("longString")){
       this.userForm.patchValue({long: localStorage.getItem("longString")});
       this.userForm.patchValue({lati: localStorage.getItem("latiString")});
-      alert("Datos obtenidos");
+      alert("Datos generados");
     }
     else{
-      alert("No fue posible obtener datos de geolocalización");
+      alert("No fue posible obtener los datos");
     }
   }
-  //validaciones
+  //Validaciones 
   emptyFields(field: string){
     if (this.userForm.get(field)?.hasError('required')) {
       return 'El campo es obligatorio';
     }
-   
     return this.userForm.get(field)? 'Formato incorrecto' : '';
-  }
+    }
   emptypassword(field: string){
     if (this.userForm.get(field)?.hasError('required')) {
       return 'El campo es obligatorio';
     }
-    return this.userForm.get(field)? 'La contraseña debe tener más de 8 caracteres con números y simbolos' : '';
-  }
+    return this.userForm.get(field)? 'La contraseña debe tener más de 8 caracteres' : '';
+    }
   get emptyName(){
-    return this.userForm.get('name')?.invalid && this.userForm.get('name')?.touched
-  }
+  return this.userForm.get('name')?.invalid && this.userForm.get('name')?.touched
+    }
   get emptyPassword(){
-    return this.userForm.get('password')?.invalid && this.userForm.get('password')?.touched
-  }
+  return this.userForm.get('password')?.invalid && this.userForm.get('password')?.touched
+    }
   get emptyemail(){
-    return this.userForm.get('mail')?.invalid && this.userForm.get('mail')?.touched
-  }
+  return this.userForm.get('mail')?.invalid && this.userForm.get('mail')?.touched
+    }
 
 }

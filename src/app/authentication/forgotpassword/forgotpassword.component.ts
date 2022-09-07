@@ -8,23 +8,20 @@ import { AuthserviceService } from 'src/app/services/authservice.service';
   styleUrls: ['./forgotpassword.component.css']
 })
 export class ForgotpasswordComponent implements OnInit {
-//variable correo
+//Se genera la variable del correo
 email:string= '';
-
 constructor(private auth : AuthserviceService, public router: Router) { }
-
 
   ngOnInit(): void {
     localStorage.setItem("recarga", "true");
   }
-
-  //Método para reestablecer contraseña
+//Método para reestablecer contraseña
   forgotPassword(){
     
-    //referencia al método del servicio para reestablecer contraseña
+//Referencia al método del servicio para reestablecer contraseña
     this.auth.forgotPassword(this.email);
     this.myAsyncFunction();
-    //reestablecer correo
+//reestablecer correo
     this.email= '';
   }
   async delay(n: number){
@@ -33,11 +30,7 @@ constructor(private auth : AuthserviceService, public router: Router) { }
     });
   }
   async  myAsyncFunction(){
-    //Do what you want here 
-    console.log("Revisa tu correo")
-
     await this.delay(2);
-
     this.router.navigate(['/login']);
   }
   
