@@ -233,6 +233,7 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:visibility="visible"
                 tools:ignore="SpeakableTextPresentCheck">
 
@@ -240,6 +241,7 @@
                     android:id="@+id/positionList__table"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:animateLayoutChanges="true"
                     android:orientation="vertical"
                     android:overScrollMode="always"

@@ -16,19 +16,12 @@ class Login : AppCompatActivity() {
 
         setup()
     }
-    //private lateinit var auth: FirebaseAuth
-    // Initialize Firebase Auth
-
-    //var userId = ""
 
 
     private fun setup() {
 
         title = "Auntenticación"
 
-        //auth = Firebase.auth
-
-        //final
         registerButton.setOnClickListener{
             if (inputEmail.text.isNotEmpty() && inputPass.text.isNotEmpty()) {
                 Firebase.auth.createUserWithEmailAndPassword(
@@ -40,17 +33,13 @@ class Login : AppCompatActivity() {
                         //userId =
                         val userData = hashMapOf(
                             "id" to userId,
-                            "email" to inputEmail.text.toString()
+                            "mail" to inputEmail.text.toString(),
+                            "lati" to "",
+                            "long" to "",
+                            "name" to inputEmail.text.toString()
                         )
-                        Firebase.firestore.collection("Users").document(userId).set(userData)
+                        Firebase.firestore.collection("users").document(userId).set(userData)
                         showProfile(it.result?.user?.email?: "", ProviderType.BASIC, userId)
-
-                        Firebase.firestore.collection("Locations").document(userId).set(hashMapOf(
-                            "user" to inputEmail.text.toString(),
-                            "lat" to "",
-                            "long" to ""
-
-                        ))
                         inputEmail.text.clear()
                         inputPass.text.clear()
                     }

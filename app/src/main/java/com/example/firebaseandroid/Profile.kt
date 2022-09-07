@@ -34,7 +34,7 @@ enum class ProviderType {
 
 class Profile : AppCompatActivity() {
 
-    private val db = Firebase.firestore.collection("Locations")
+    private val db = Firebase.firestore.collection("users")
 
     private var locationRequest: LocationRequest? = null
 
@@ -72,11 +72,7 @@ class Profile : AppCompatActivity() {
 
         getCurrentLocation()
 
-
         showLocationsTable()
-
-//        println("userLocation $locationData")
-//        println("userLocationType ${locationData::class.simpleName}")
 
     }
 
@@ -146,10 +142,10 @@ class Profile : AppCompatActivity() {
 
                                     println("user id: ${idUser.text}")
 
-                                    Firebase.firestore.collection("Locations")
-                                        .document(idUser.text.toString()).update(
+                                    //Firebase.firestore.collection("Locations")
+                                    db.document(idUser.text.toString()).update(
                                         mapOf(
-                                            "lat" to latitudeCurrentUser,
+                                            "lati" to latitudeCurrentUser,
                                             "long" to longitudeCurrentUser
                                         )
                                     ).addOnCompleteListener { succesfulLocation() }
@@ -242,14 +238,6 @@ class Profile : AppCompatActivity() {
             Toast.LENGTH_LONG
         ).show()
 
-//        val builder = AlertDialog.Builder(this)
-//        builder.setTitle("Error")
-//        builder.setMessage("Se ha producido un error actualizando la localización")
-//        builder.setPositiveButton("Aceptar", null)
-//
-//        val dialog: AlertDialog = builder.create()
-//        dialog.show()
-
     }
 
     private fun getAllDataCurrentUser(userId: String) {
@@ -267,7 +255,7 @@ class Profile : AppCompatActivity() {
 
                 val locationData = querySnapshot.data
 
-                val lat_locationData = locationData?.get("lat") as String?
+                val lat_locationData = locationData?.get("lati") as String?
                 val long_locationData = locationData?.get("long") as String?
 
                 latUser.text = lat_locationData
@@ -276,8 +264,6 @@ class Profile : AppCompatActivity() {
                 latitudeCurrentUser = lat_locationData ?: ""
                 longitudeCurrentUser = long_locationData ?: ""
 
-                println("location document values ${querySnapshot.data}")
-                println("type ${querySnapshot.data!!::class.simpleName}")
 
             }
         }
@@ -303,7 +289,7 @@ class Profile : AppCompatActivity() {
 
                 for (document in it) {
 
-                    if (document.data["user"].toString() !== emailUser.text.toString()) {
+                    if (document.data["mail"].toString() !== emailUser.text.toString()) {
 
                         val text_userEmail = TextView(this)
                         text_userEmail.layoutParams = wrap
@@ -317,8 +303,8 @@ class Profile : AppCompatActivity() {
                         var linearH = LinearLayout(this)
                         linearH.layoutParams = match
 
-                        val userEmail = document.data["user"]
-                        val latUser = document.data["lat"]
+                        val userEmail = document.data["mail"]
+                        val latUser = document.data["lati"]
                         val longUser = document.data["long"]
 
                         text_userEmail.text = userEmail.toString()
@@ -330,9 +316,6 @@ class Profile : AppCompatActivity() {
                                 longUser.toString()
                             )
                         })
-                        //btn_user.id = document.id as Int
-
-                        //linearH.id = "table__$userEmail" as Int
 
                         linearH.addView(text_userEmail)
                         linearH.addView(btn_user)
