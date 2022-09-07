@@ -1,3 +1,9 @@
+### Integrantes:
+- Armas Alejandro
+- Catota Luis
+- Guala Paul
+- Guallichico Nataly
+
 ### App Ciclistas - Manual técnico
 
 <hr>
