@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+.card{
+    margin-top: 25px;
+    padding: 15px;
+}
+.card_title{
+    margin-top: 0px;
+    padding: 15px;
+}
+.centrado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardProfile{
+    margin-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.error{
+    color: red;
+ }
+ .red{
+    border-color: red; 
+ }
+ .button{   
+    margin: 15px;
+    /*color: red;*/
+}
+.top{
+    padding-top: 100px;
+}
+body {
+    background-image: url("https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000");
+  }
+table{
+    background-color: white;
+}¨
+.table-striped{
+    background-color: #2196f3;
+    border-color: black; 
+}
+.text-white{
+    background-color: #2196f3;
+    border-color: black; 
+}

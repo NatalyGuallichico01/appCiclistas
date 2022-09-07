@@ -1,0 +1,12 @@
+.card_title{
+    border-color: #009788; 
+    color: black;
+    background-color:#009788;
+    align-items: center;
+
+}
+.btn-primary{
+    border-color: black; 
+    color: white;
+    background-color:black;
+}

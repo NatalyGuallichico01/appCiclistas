@@ -1,0 +1,32 @@
+<div class="top row aling-items-center justify-content-center">
+    <div class="col-sm-6">
+<div class="card card_title">
+    <div class="card-head"><h2>Ubicación de Usuarios</h2></div>
+    
+</div>
+<div class="d-grid gap-2 button">
+    <button (click)="logout()" class="d-grid gap-2 button btn btn-primary" >Salir</button>
+</div>
+<div>
+    <div class="form-control form-control-lg" type="text" placeholder=".form-control-lg"><h2>Lista de ubicación</h2></div>
+</div>
+    
+<table class="table table-hover table-striped" >
+    <thead class="bg-blue text-black">
+        <tr>
+            <th>Nombre</th>
+            <th>Ubicación</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of Users">
+            <td>{{user.name}}</td>
+            <td>
+                <a class="btn btn-primary" target="_blank" href="https://www.google.es/maps?q={{user.lati}},{{user.long}}">Ubicación</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
