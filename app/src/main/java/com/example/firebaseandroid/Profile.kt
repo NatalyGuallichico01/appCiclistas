@@ -70,14 +70,8 @@ class Profile : AppCompatActivity() {
             )
         })
 
+        getCurrentLocation()
 
-//        if(isGPSEnabled()) {
-//            getCurrentLocation()
-//        } else {
-//            turnOnGPS()
-//        }
-
-        //var locationData = mutableMapOf<String, Unit>()
 
         showLocationsTable()
 
@@ -125,8 +119,6 @@ class Profile : AppCompatActivity() {
     }
 
     private fun getCurrentLocation() {
-
-        var loginPage = Login();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(
